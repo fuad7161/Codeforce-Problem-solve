@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+bool ar[26];
+void isUunic(string s, char ck)
+{
+    int c=0,pr=0,chr=0;
+    bool noPr=true;
+    int n = s.size();
+        for(int j =0; j<n;j++){
+            if(ck == s[j]){
+                c++;
+            }else {
+                if(c%2 == 1){
+                ar[ck-97]= true;
+                break;
+                } if(c%2==0) c=0;
+            }
+        }
+        if(c%2 == 1){
+            ar[ck-97]= true;
+            }
+}
+ 
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+    string s;
+    cin>>s;
+    for(int i=0; i<26; i++){
+        ar[i]=false;
+    }
+    int cnt,total=0;
+    int n = s.size();
+    for(int i=0; i<n; i++){
+        isUunic(s,s[i]);
+    }
+    for(int i=0; i<26;i++){
+        if(ar[i]== true){
+            printf("%c", i+97);
+        }
+    }
+    cout<<endl;
+    }
+ 
+}
