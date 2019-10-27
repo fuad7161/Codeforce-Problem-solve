@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    int n;
+    cin>>n;
+    int ar[200009];
+    for(int i=0; i<n; i++){
+        cin>>ar[i];
+    }
+    sort(ar,ar+n);
+    int member=1,m=0;
+    int ct1=ar[0],ct2,j=0;
+    for(int i=0; i<n;++i){
+            while(j<n&&abs(ar[j]-ar[i])<=5){
+                j++;
+                m = max(m,j-i);
+            }
+    }
+    cout<<m<<endl;
+}
