@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+    long long n,m,a,b,on1=0,en1=0,on2=0,en2=0;
+    cin>>n;
+    while(n--){
+        cin>>a;
+        if(a&1) on1++;
+        else en1++;
+    }
+    cin>>m;
+    while(m--){
+        cin>>b;
+        if(b&1) on2++;
+        else en2++;
+    }
+ 
+    cout<<(on1*on2)+(en1*en2)<<endl;
+    }
+}
