@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+    string s;
+    cin>>s;
+    int c=0;
+    for(int i=0; i<s.size();i++)
+    {
+        if(s[i]=='N'||s[i]=='W'||s[i]=='D') c=c;
+        else {
+            c++;
+        }
+    }
+    if(c<6){
+    cout<<c<<" BALLS"<<endl;
+    } else
+    {
+        if(c%6){
+                if(c/6==1){
+                if(c-((c/6)*6)==1){
+            cout<<c/6<<" OVER "<<c-((c/6)*6)<<" BALL"<<endl;
+                } else
+                {
+                    cout<<c/6<<" OVER "<<c-((c/6)*6)<<" BALLS"<<endl;
+                }
+        } else
+        {
+            if(c-((c/6)*6)==1){
+            cout<<c/6<<" OVERS "<<c-((c/6)*6)<<" BALL"<<endl;
+                } else
+                {
+                    cout<<c/6<<" OVERS "<<c-((c/6)*6)<<" BALLS"<<endl;
+                }
+        }
+        } else
+            if(c/6==1){
+            cout<<c/6<<" OVER"<<endl;
+            } else
+            {
+                cout<<c/6<<" OVERS"<<endl;
+            }
+    }
+}
+}
