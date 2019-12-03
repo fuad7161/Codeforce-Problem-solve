@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+const int MAX = 1e5+7;
+ 
+int main(int argc, char const *argv[])
+{
+ 
+	int n,a[MAX],c1=1,c2=1;
+	cin>>n;
+	for(int i=0; i<n; i++)
+	{
+		cin>>a[i];
+	}
+	if(n==1)
+    {
+        cout<<"1"<< " "<<"0"<<endl;
+        return 0;
+    }
+	int i=0,j=n-1;
+	while(i<j&&(j-i!=1))
+	{
+		if(a[i]<=a[j])
+		{
+			a[i+1]= a[i]+a[i+1];
+			i++;
+			c1++;
+		}
+		else
+		{
+			a[j-1] = a[j]+a[j-1];
+			j--;
+			c2++;
+		}
+		//cout<<a[i]<<" "<<c1<<" "<<a[j]<<" "<<c2<<endl;
+	}
+	cout<<c1<<" "<<c2<<endl;
+}
+/*5
+2 9 8 2 7*/
+ 
