@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int MAX = 5e5+5;
+int a[MAX];
+int main()
+{
+    string s;
+    cin>>s;
+    int len = s.size(),z = 0,i,cnt=0;
+    long long f,ans=0;
+    for(i=0; i<len-4;i++)
+    {
+        if(s[i]=='h'&&s[i+1]=='e'&&s[i+2]=='a'&&s[i+3]=='v'&&s[i+4]=='y')
+           {a[z]=1;z++;i=i+4;}
+        if(s[i]=='m'&&s[i+1]=='e'&&s[i+2]=='t'&&s[i+3]=='a'&&s[i+4]=='l')
+            {a[z]= 2;z++;i=i+4;}
+    }
+    for(int i=0; i<z;i++)
+    if(a[i]==2) cnt++;
+    for(int i=0; i<z-1; i++)
+    {
+        if(a[i]==1) ans+=cnt;
+        else cnt--;
+    }
+    cout<<ans<<endl;
+}
