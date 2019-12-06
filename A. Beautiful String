@@ -1,0 +1,165 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+ 
+ 
+int sc1() {int x; scanf("%d", &x); return x;}
+ 
+long long sc2() {long long x; scanf("%lld", &x); return x;}
+ 
+ 
+ 
+#define  gcd(a,b)         __gcd(a,b)
+#define  lcm(a,b)         (a*b)/gcd(a,b)
+#define  Int              sc1()
+#define  LL               sc2()
+#define  For(n)           for(int i=0;i<n;i++)
+#define  Forj(n)          for(int j=0;j<n;j++)
+#define  Fork(n)          for(int k=0;k<n;k++)
+#define  For1(n)          for(int i=1;i<=n;i++)
+#define  ll               long long
+#define  vi               std::vector<int>
+#define  vll              std::vector<ll>
+#define  qui              qu
+#define  pb               push_back
+#define  mpsi             std::map<string, int>
+ 
+ 
+const int mod           = 1e9 + 7;
+const int inf           = (int)2e9 + 5;
+const ll  Inf           = (ll)1e18 + 5;
+const int N             = 1e6 + 5;
+ 
+inline int add(int a, int b) {a += b; return a >= mod ? a - mod : a;}
+inline int sub(int a, int b) {a -= b; return a < 0 ? a + mod : a;}
+inline int mul(int a, int b) {return (ll)a * b % mod;}
+ 
+ 
+ int vis[N];
+ 
+ string solv(string s,int n)
+ {
+    for(int i=0; i<n-1; i++)
+    {
+        if(i==0&&s[i]=='?')
+        {
+            char a = s[i+1];
+            if(a!='?')
+            {
+                if(a=='a') s[i]= 'b';
+                if(a=='b') s[i]= 'c';
+                if(a=='c') s[i]= 'a';
+            }
+        }
+    }
+    cout<<s<<endl;
+ }
+ 
+ 
+int solve() {
+ 
+    string s;
+    cin>>s;
+    int n = s.size();
+    bool f = true;
+    for(int i=0; i<n-1; i++)
+    {
+        if(s[i]!='?'&&s[i]==s[i+1])
+            f = false;
+    }
+ 
+    if(f)
+    {
+        //solv(s,n);
+        if(n==1&&s[0]=='?')
+        {
+        	s[0]= 'a';
+        }
+        for(int i=0; i<n-1; i++)
+        {
+        if(i==0&&s[i]=='?')
+        {
+            char a = s[i+1];
+            if(a!='?')
+            {
+                if(a=='a') s[i]= 'b';
+                if(a=='b') s[i]= 'c';
+                if(a=='c') s[i]= 'a';
+            }
+            else
+            {
+                s[i]= 'a';
+            }
+        }
+    }
+    for(int i=0; i<n; i++)
+        {
+        if(i==n-1&&s[i]=='?')
+        {
+            char a = s[i-1];
+            if(a!='?')
+            {
+                if(a=='a') s[i]= 'b';
+                if(a=='b') s[i]= 'c';
+                if(a=='c') s[i]= 'a';
+            }
+            else
+            {
+                s[i]= 'a';
+            }
+        }
+    }
+    for(int i =1; i<n-1; i++)
+    {
+        char x= s[i-1],y = s[i+1];
+        if(x!='?'&&y!='?'&&s[i]=='?')
+        {
+            if(x=='a'&&y=='a') s[i]='b';
+            if(x=='b'&&y=='b') s[i]='c';
+            if(x=='c'&&y=='c') s[i]='a';
+            if(x=='a'&&y=='b') s[i]='c';
+            if(x=='b'&&y=='a') s[i]='c';
+            if(x=='b'&&y=='c') s[i]='a';
+            if(x=='c'&&y=='b') s[i]='a';
+            if(x=='a'&&y=='c') s[i]='b';
+            if(x=='c'&&y=='a') s[i]='b';
+        }
+        char x1 = s[i],x2 = s[i+1],x3 = s[i-1];
+        if(x1=='?'&&x2=='?'&&x3!='?')
+        {
+            if(x3=='a') s[i]= 'b';
+            if(x3=='b') s[i]= 'c';
+            if(x3=='c') s[i]= 'a';
+        }
+    }
+    cout<<s<<endl;
+    }
+    else {
+        cout<<"-1"<<endl;
+    }
+ 
+	return 0;
+}
+ 
+ 
+ 
+ 
+int main()
+{
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+ 
+	int test = 1, tc = 0;
+	scanf("%d", &test);
+	//cin >> test;
+	while (test--) {
+		//printf("Case %d: ", ++tc);
+		solve();
+	}
+ 
+	return 0;
+ 
+ 
+ 
+ 
+}
