@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+int solve() {
+ 
+    long long n;
+    scanf("%lld", &n);
+    long long mn = n - 14*(n/14);
+
+ 
+    //cout<<n<<endl;
+    if(mn>0&&mn<7&&n>13)
+    {
+        cout<<"YES"<<endl;
+    }
+    else 
+    {
+        cout<<"NO"<<endl;
+    }
+ 
+    return 0;
+}
+ 
+ 
+ 
+ 
+int main()
+{
+    //Input//freopen("input.txt", "r", stdin);
+    //Output//freopen("output.txt", "w", stdout)
+ 
+    int test = 1, tc = 0;
+    scanf("%d", &test);
+   // (void)getchar();
+    //cin >> test;
+    while (test--) {
+        //printf("Case %d: ", ++tc);
+        solve();
+    }
+ 
+    return 0;
+}
