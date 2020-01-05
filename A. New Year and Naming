@@ -1,0 +1,124 @@
+/*
+Happy new year! The year 2020 is also known as Year Gyeongja (경자년, gyeongja-nyeon) in Korea. Where did the name come from? Let's briefly look at the Gapja system, which is traditionally used in Korea to name the years.
+
+There are two sequences of n strings s1,s2,s3,…,sn and m strings t1,t2,t3,…,tm. These strings contain only lowercase letters. There might be duplicates among these strings.
+
+Let's call a concatenation of strings x and y as the string that is obtained by writing down strings x and y one right after another without changing the order. For example, the concatenation of the strings "code" and "forces" is the string "codeforces".
+
+The year 1 has a name which is the concatenation of the two strings s1 and t1. When the year increases by one, we concatenate the next two strings in order from each of the respective sequences. If the string that is currently being used is at the end of its sequence, we go back to the first string in that sequence.
+
+For example, if n=3,m=4,s={"a", "b", "c"}, t= {"d", "e", "f", "g"}, the following table denotes the resulting year names. Note that the names of the years may repeat.
+
+
+You are given two sequences of strings of size n and m and also q queries. For each query, you will be given the current year. Could you find the name corresponding to the given year, according to the Gapja system?
+
+Input
+The first line contains two integers n,m (1≤n,m≤20).
+
+The next line contains n strings s1,s2,…,sn. Each string contains only lowercase letters, and they are separated by spaces. The length of each string is at least 1 and at most 10.
+
+The next line contains m strings t1,t2,…,tm. Each string contains only lowercase letters, and they are separated by spaces. The length of each string is at least 1 and at most 10.
+
+Among the given n+m strings may be duplicates (that is, they are not necessarily all different).
+
+The next line contains a single integer q (1≤q≤2020).
+
+In the next q lines, an integer y (1≤y≤109) is given, denoting the year we want to know the name for.
+
+Output
+Print q lines. For each line, print the name of the year as per the rule described above.
+
+Example
+inputCopy
+10 12
+sin im gye gap eul byeong jeong mu gi gyeong
+yu sul hae ja chuk in myo jin sa o mi sin
+14
+1
+2
+3
+4
+10
+11
+12
+13
+73
+2016
+2017
+2018
+2019
+2020
+outputCopy
+sinyu
+imsul
+gyehae
+gapja
+gyeongo
+sinmi
+imsin
+gyeyu
+gyeyu
+byeongsin
+jeongyu
+musul
+gihae
+gyeongja
+Note
+The first example denotes the actual names used in the Gapja system. These strings usually are either a number or the name of some animal.
+//code...!
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int s11,s22;
+ 
+void find1(string s1,int x,int s11)
+{
+  for(int i=0; i<s11;i++)
+  {
+    if(s1[i]==' ') x--;
+    if(x==1&&i==0)
+    {
+      while(s1[i]!=' '&&i!=s11-1)
+      {cout<<s1[i];i++;if(i==s11-1){cout<<s1[i];return;}}
+      while(s1[i]!=' '&&i==s11-1){cout<<s1[i];i++;}return;
+    }
+    if(x==1)
+    {
+      i++;
+      while(s1[i]!=' '&&i!=s11-1)
+      {cout<<s1[i];i++;if(i==s11-1){cout<<s1[i];return;}}
+      while(s1[i]!=' '&&i==s11-1){cout<<s1[i];i++;}return;
+    }
+  }
+}
+ 
+int main(int argc, char const *argv[])
+{
+  int a,b;
+  char s1[20000],s2[20000];
+  scanf("%d%d %[^\n]%*c %[^\n]%*c",&a,&b,&s1,&s2);
+  s11 = strlen(s1);
+  s22 = strlen(s2);
+  int n;
+  cin>>n;
+  while(n--)
+  {
+    int x;
+    cin>>x;
+    int s111 = x%a;
+    int s222 = x%b;
+ 
+    if(s111==0) s111=a;
+    if(s222==0) s222=b;
+ 
+ 
+    find1(s1,s111,s11);
+    find1(s2,s222,s22);
+    printf("\n");
+  }
+  return 0;
+}
+
+
+*/
