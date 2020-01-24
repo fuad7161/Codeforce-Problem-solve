@@ -1,0 +1,158 @@
+/*
+
+You are given two integers a and b. You can perform a sequence of operations: during the first operation you choose one of these numbers and increase it by 1; during the second operation you choose one of these numbers and increase it by 2, and so on. You choose the number of these operations yourself.
+
+For example, if a=1 and b=3, you can perform the following sequence of three operations:
+
+add 1 to a, then a=2 and b=3;
+add 2 to b, then a=2 and b=5;
+add 3 to a, then a=5 and b=5.
+Calculate the minimum number of operations required to make a and b equal.
+
+Input
+The first line contains one integer t (1≤t≤100) — the number of test cases.
+
+The only line of each test case contains two integers a and b (1≤a,b≤109).
+
+Output
+For each test case print one integer — the minimum numbers of operations required to make a and b equal.
+
+Example
+inputCopy
+3
+1 3
+11 11
+30 20
+outputCopy
+3
+0
+4
+Note
+First test case considered in the statement.
+
+In the second test case integers a and b are already equal, so you don't need to perform any operations.
+
+In the third test case you have to apply the first, the second, the third and the fourth operation to b (b turns into 20+1+2+3+4=30).
+
+
+
+*/
+
+
+/*
+Author: Fuadul Hasan(fuadul202@gmail.com)
+BSMRSTU,Gopalganj
+*/
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <algorithm>
+#include <cmath>
+#include <vector>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <queue>
+#include <ctime>
+#include <cassert>
+#include <complex>
+#include <string>
+#include <cstring>
+#include <chrono>
+#include <random>
+#include <queue>
+#include <bitset>
+//#include<bits/stdc++.h>
+using namespace std;
+ 
+int         cinn()              {int x; scanf("%d", &x); return x;}
+long long   scll()              {long long x; scanf("%lld", &x); return x;}
+double      scd()               {double x; scanf("%lf", &x); return x;}
+void        coutt(int x)        {printf("%d ", x);}
+ 
+#define  scll                   scll()
+#define  gcd(a,b)               __gcd(a,b)
+#define  lcm(a,b)               (a*b)/gcd(a,b)
+#define  PI                     acos(-1.0)
+#define  vi                     std::vector<int>
+#define  vll                    std::vector<ll>
+#define  vit                    vector<int> :: iterator
+#define  sit                    set<int> :: iterator
+#define  mpsi                   std::map<string, int>
+#define  pb                     push_back
+#define  ll                     long long int
+#define  ld                     long double
+#define  ull                    unsigned long long int
+#define  min3(a,b,c)            min(a,min(b,c))
+#define  min4(a,b,c,d)          min(d,min(a,min(b,c)))
+#define  max3(a,b,c)            max(a,max(b,c))
+#define  max4(a,b,c,d)          max(d,max(a,max(b,c)))
+#define  nl                     printf("\n");
+#define  no                     printf("No");
+#define  yes                    printf("Yes");
+#define  F                      first
+#define  S                      second
+ 
+const int mod           = 1e9 + 7;
+const int inf           = (int)2e9 + 5;
+const ll  Inf           = (ll)1e18 + 5;
+const int N             = 1e6 + 5;
+const int nn           = 2e5 + 5;
+
+
+string p, h;
+
+
+bool ishok(long long n)
+{
+	long long  x = sqrt(n*8)+1;
+	return x*x==(n*8)+1? true:false;
+}
+
+long long hobe(long long x)
+{
+	return (sqrt(8*x+1)-1)/2;
+}
+
+
+int solve()
+{
+	long long a,b,c;
+	cin>>a>>b;
+	long long x = abs(a-b);
+	c = x;
+	if(ishok(x)){
+		cout<<hobe(x)<<endl;
+	}
+	else {
+		while(x++){
+			if(ishok(x)){
+				if(c%2&&x%2){
+				cout<<hobe(x)<<endl;
+				return 0;
+				}
+				if(c%2==0&&x%2==0){
+					cout<<hobe(x)<<endl;
+					return 0;
+				}
+			}
+		}
+	}
+}
+
+
+int main()
+{
+    int test = 1, tc = 0;
+    scanf("%d", &test);
+   // (void)getchar();
+    //cin >> test;
+    while (test--) {
+        //printf("Case %d: ", ++tc);
+        solve();
+    }
+ 
+    return 0;
+}
