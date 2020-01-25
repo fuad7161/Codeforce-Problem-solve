@@ -1,0 +1,147 @@
+
+/*
+
+You are given 4n sticks, the length of the i-th stick is ai.
+
+You have to create n rectangles, each rectangle will consist of exactly 4 sticks from the given set. The rectangle consists of four sides, opposite sides should have equal length and all angles in it should be right. Note that each stick can be used in only one rectangle. Each stick should be used as a side, you cannot break the stick or use it not to the full length.
+
+You want to all rectangles to have equal area. The area of the rectangle with sides a and b is a⋅b.
+
+Your task is to say if it is possible to create exactly n rectangles of equal area or not.
+
+You have to answer q independent queries.
+
+Input
+The first line of the input contains one integer q (1≤q≤500) — the number of queries. Then q queries follow.
+
+The first line of the query contains one integer n (1≤n≤100) — the number of rectangles.
+
+The second line of the query contains 4n integers a1,a2,…,a4n (1≤ai≤104), where ai is the length of the i-th stick.
+
+Output
+For each query print the answer to it. If it is impossible to create exactly n rectangles of equal area using given sticks, print "NO". Otherwise print "YES".
+
+Example
+inputCopy
+5
+1
+1 1 10 10
+2
+10 5 2 10 1 1 2 5
+2
+10 5 1 10 5 1 1 1
+2
+1 1 1 1 1 1 1 1
+1
+10000 10000 10000 10000
+outputCopy
+YES
+YES
+NO
+YES
+YES
+
+
+*/
+
+
+/*
+Author: Fuadul Hasan(fuadul202@gmail.com)
+BSMRSTU,Gopalganj
+*/
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <algorithm>
+#include <cmath>
+#include <vector>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <queue>
+#include <ctime>
+#include <cassert>
+#include <complex>
+#include <string>
+#include <cstring>
+#include <chrono>
+#include <random>
+#include <queue>
+#include <bitset>
+//#include<bits/stdc++.h>
+using namespace std;
+ 
+int         cinn()              {int x; scanf("%d", &x); return x;}
+long long   scll()              {long long x; scanf("%lld", &x); return x;}
+double      scd()               {double x; scanf("%lf", &x); return x;}
+void        coutt(int x)        {printf("%d ", x);}
+ 
+#define  scll                   scll()
+#define  gcd(a,b)               __gcd(a,b)
+#define  lcm(a,b)               (a*b)/gcd(a,b)
+#define  PI                     acos(-1.0)
+#define  vi                     std::vector<int>
+#define  vll                    std::vector<ll>
+#define  vit                    vector<int> :: iterator
+#define  sit                    set<int> :: iterator
+#define  mpsi                   std::map<string, int>
+#define  pb                     push_back
+#define  ll                     long long int
+#define  ld                     long double
+#define  ull                    unsigned long long int
+#define  min3(a,b,c)            min(a,min(b,c))
+#define  min4(a,b,c,d)          min(d,min(a,min(b,c)))
+#define  max3(a,b,c)            max(a,max(b,c))
+#define  max4(a,b,c,d)          max(d,max(a,max(b,c)))
+#define  nl                     printf("\n");
+#define  no                     printf("No");
+#define  yes                    printf("Yes");
+#define  F                      first
+#define  S                      second
+ 
+const int mod           = 1e9 + 7;
+const int inf           = (int)2e9 + 5;
+const ll  Inf           = (ll)1e18 + 5;
+const int N             = 1e6 + 5;
+const int nn           = 2e5 + 5;
+
+
+
+int solve()
+{
+    int n;
+    cin>>n; n*=4;
+    int a[n+1];
+    for(int i=0;i<n;i++) cin>>a[i];
+    sort(a,a+n);
+    int z = a[0]*a[n-1];
+    for(int i=0;i<n;i++){
+        if(a[i]!=a[i+1]&&!(i&1)){
+            cout<<"NO"<<endl;
+            return 0;
+        }
+        if(z!=a[i]*a[n-i-1]){
+            cout<<"NO"<<endl;
+            return 0;
+        }
+    }
+    cout<<"YES"<<endl;
+    return 0;
+}
+
+
+int main()
+{
+    int test = 1, tc = 0;
+    scanf("%d", &test);
+   // (void)getchar();
+    //cin >> test;
+    while (test--) {
+        //printf("Case %d: ", ++tc);
+        solve();
+    }
+ 
+    return 0;
+}
