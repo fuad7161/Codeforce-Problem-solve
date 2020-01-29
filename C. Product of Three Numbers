@@ -1,0 +1,157 @@
+
+/*
+You are given one integer number n. Find three distinct integers a,b,c such that 2≤a,b,c and a⋅b⋅c=n or say that it is impossible to do it.
+
+If there are several answers, you can print any.
+
+You have to answer t independent test cases.
+
+Input
+The first line of the input contains one integer t (1≤t≤100) — the number of test cases.
+
+The next n lines describe test cases. The i-th test case is given on a new line as one integer n (2≤n≤109).
+
+Output
+For each test case, print the answer on it. Print "NO" if it is impossible to represent n as a⋅b⋅c for some distinct integers a,b,c such that 2≤a,b,c.
+
+Otherwise, print "YES" and any possible such representation.
+
+Example
+inputCopy
+5
+64
+32
+97
+2
+12345
+outputCopy
+YES
+2 4 8 
+NO
+NO
+NO
+YES
+3 5 823 
+
+*/
+
+/*
+Author: Fuadul Hasan(fuadul202@gmail.com)
+BSMRSTU,Gopalganj
+*/
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <algorithm>
+#include <cmath>
+#include <vector>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <queue>
+#include <ctime>
+#include <cassert>
+#include <complex>
+#include <string>
+#include <cstring>
+#include <chrono>
+#include <random>
+#include <queue>
+#include <bitset>
+//#include<bits/stdc++.h>
+using namespace std;
+ 
+int         cinn()              {int x; scanf("%d", &x); return x;}
+long long   scll()              {long long x; scanf("%lld", &x); return x;}
+double      scd()               {double x; scanf("%lf", &x); return x;}
+void        coutt(int x)        {printf("%d ", x);}
+ 
+#define  scll                   scll()
+#define  gcd(a,b)               __gcd(a,b)
+#define  lcm(a,b)               (a*b)/gcd(a,b)
+#define  PI                     acos(-1.0)
+#define  vi                     std::vector<int>
+#define  vll                    std::vector<ll>
+#define  vit                    vector<int> :: iterator
+#define  sit                    set<int> :: iterator
+#define  mpsi                   std::map<string, int>
+#define  pb                     push_back
+#define  ll                     long long int
+#define  ld                     long double
+#define  ull                    unsigned long long int
+#define  min3(a,b,c)            min(a,min(b,c))
+#define  min4(a,b,c,d)          min(d,min(a,min(b,c)))
+#define  max3(a,b,c)            max(a,max(b,c))
+#define  max4(a,b,c,d)          max(d,max(a,max(b,c)))
+#define  nl                     printf("\n");
+#define  no                     printf("No");
+#define  yes                    printf("Yes");
+#define  F                      first
+#define  S                      second
+ 
+const int mod           = 1e9 + 7;
+const int inf           = (int)2e9 + 5;
+const ll  Inf           = (ll)1e18 + 5;
+const int N             = 1e6 + 5;
+const int nn           = 2e5 + 5;
+
+
+string p, h;
+
+long long a[nn];
+long long w[nn];
+
+int div(int n)
+{
+	set<int>s;
+	int j=0;
+	for(int i=2;i*i<=n;i++){
+		if(n%i==0){
+			s.insert(i);
+			s.insert(n/i);
+			j+=2;
+		}
+	}
+	std::vector<int> v;
+		for(auto i= s.begin();i!=s.end();i++){
+			v.push_back(*i);
+		}
+		for(int i=0;i<v.size();i++){
+			for(int j=i+1;j<v.size();j++){
+				for(int z = j+1; z<v.size();z++){
+					if(v[i]*v[j]*v[z]==n){
+						cout<<"YES"<<endl;
+						cout<<v[i]<<" "<<v[j]<<" "<<v[z]<<endl;
+						return 0;
+					}
+				}
+			}
+		}
+		cout<<"NO"<<endl;
+		return 0;
+}
+
+
+int solve()
+{
+	int n;
+	cin>>n;
+	div(n);
+
+}
+
+int main()
+{
+    int test = 1, tc = 0;
+    scanf("%d", &test);
+   // (void)getchar();
+    //cin >> test;
+    while (test--) {
+        //printf("Case %d: ", ++tc);
+        solve();
+    }
+ 
+    return 0;
+}
