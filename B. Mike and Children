@@ -1,0 +1,38 @@
+//Author: Fuadul Hasan(fuadul202@gmail.com)
+//BSMRSTU,Gopalganj
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+const int mod = 1e9 + 7;
+const int Inf = (int)2e9 + 5;
+const ll  Lnf = (ll)2e18 + 5;
+const int N   = 2e5 + 5;
+
+int vis[N];
+
+int solve() 
+{
+	
+	int n;
+	cin>>n;
+	int a[n+1];
+	for(int i=0;i<n;i++){
+		cin>>a[i];
+	}
+	int mx = 0;
+	for(int i=0;i<n-1;i++){
+		for(int j=i+1;j<n;j++){
+			vis[a[i]+a[j]]++;
+			mx = max(mx,vis[a[i]+a[j]]);
+		}
+	}
+	cout<<mx<<endl;
+
+	return 0;
+}
+int main(){
+	int test = 1;
+	//scanf("%d", &test);
+	while (test--)solve();return 0;
+}
